@@ -1,0 +1,14 @@
+# dependencies
+/node_modules
+
+
+# production
+/build
+/dist
+
+# local environment files
+.env*
+!.env*.example
+
+# typescript
+*.tsbuildinfo

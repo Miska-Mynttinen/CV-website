@@ -1,0 +1,137 @@
+.footer {
+  background: #000000;
+  color: #c0c0c0;
+  padding: 40px 20px 20px;
+  position: relative;
+  border-top: 1px solid #404040;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.title {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+  font-weight: normal;
+  color: #00ffff;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contactInfo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #404040;
+  position: relative;
+}
+
+.label {
+  font-size: 11px;
+  color: #00ff80;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  font-family: 'Courier New', monospace;
+}
+
+.infoItem a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: normal;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.infoItem a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.infoItem span {
+  font-size: 13px;
+  font-weight: normal;
+  font-family: 'Courier New', monospace;
+  color: #c0c0c0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.infoItem .contactValue {
+  text-transform: none;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.socialIcon {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #000000;
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: normal;
+  transition: all 0.2s ease;
+  border: 1px solid #404040;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+}
+
+.socialIcon:hover {
+  background: #202020;
+  border-color: #00ffff;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px 10px 10px;
+  }
+
+  .contactInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .copyright,
+  .credit {
+    font-size: 10px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+}

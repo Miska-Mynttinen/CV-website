@@ -1,0 +1,151 @@
+.headerSection {
+  min-height: 100vh;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.textContent {
+  animation: fade-in 1s ease-out;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.name {
+  font-size: 24px;
+  color: #00ff00;
+  margin: 0;
+  font-weight: normal;
+  line-height: 1.2;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 14px;
+  color: #c0c0c0;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #00ff80;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 14px;
+  color: #c0c0c0;
+  margin: 0;
+  line-height: 1.4;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 20px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 8px 15px;
+  font-size: 12px;
+  border: 1px solid #404040;
+  background: #000000;
+  color: #c0c0c0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.primaryBtn:hover,
+.secondaryBtn:hover {
+  background: #202020;
+  border-color: #606060;
+  color: #ffffff;
+}
+
+.social {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  color: #00ff00;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  border: 1px solid #404040;
+  background: #000000;
+  transition: all 0.2s ease;
+}
+
+.emailText {
+  text-transform: none;
+}
+
+.socialLink:hover {
+  background: #202020;
+  border-color: #00ff00;
+  color: #00ff00;
+  text-decoration: underline;
+}
+
+.decoration {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .headerSection {
+    min-height: auto;
+    padding: 20px 10px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+  }
+
+  .social {
+    gap: 5px;
+  }
+
+  .socialLink {
+    font-size: 11px;
+    padding: 3px 5px;
+  }
+}
+
