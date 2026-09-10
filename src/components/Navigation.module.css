@@ -10,11 +10,12 @@
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .menu {
@@ -24,6 +25,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  gap: 8px;
 }
 
 .menu li {
@@ -36,13 +38,13 @@
   background: none;
   border: none;
   color: #c0c0c0;
-  font-size: 12px;
+  font-size: 11px;
   cursor: pointer;
   transition: color 0.2s ease;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 5px 10px;
+  padding: 5px 8px;
 }
 
 .link:hover {
@@ -69,14 +71,74 @@
   opacity: 0.7;
 }
 
+.mobileMenuButton {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .nav {
+    padding: 10px 12px;
+  }
+
+  .container {
+    justify-content: flex-start;
+    min-height: 32px;
+  }
+
   .menu {
-    width: 100%;
+    width: 180px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid #404040;
+    border-radius: 4px;
+    padding: 8px;
+    gap: 4px;
+    z-index: 20;
+  }
+
+  .menuOpen {
+    display: flex;
+  }
+
+  .menu li {
+    flex: none;
+    text-align: left;
   }
 
   .link {
-    font-size: 11px;
-    padding: 3px 5px;
+    font-size: 10px;
+    padding: 6px 8px;
+    letter-spacing: 0.5px;
+    text-align: left;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid #404040;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 21;
+  }
+
+  .mobileMenuButton span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #c0c0c0;
+    margin: 0 auto;
+    border-radius: 2px;
   }
 }
 

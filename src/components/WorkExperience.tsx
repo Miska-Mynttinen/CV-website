@@ -20,7 +20,6 @@ export default function WorkExperience({ experiences }: WorkExperienceProps) {
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>Work Experience</h2>
-          <p className={styles.subtitle}>My professional journey and roles</p>
         </div>
 
         <div className={styles.timeline}>

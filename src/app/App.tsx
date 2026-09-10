@@ -10,44 +10,47 @@ import { profileData } from '../data/profileData';
 export default function App() {
   // Refs used for scrolling to the specific section when a navigation link is clicked
   const introRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
+  const sectionWrapperStyle = { scrollMarginTop: '44px' };
+
   const scrollToSection = (section: string) => {
     const refs: { [key: string]: React.RefObject<HTMLDivElement | null> } = {
       introduction: introRef,
+      skills: skillsRef,
       experience: experienceRef,
       projects: projectsRef,
       contact: contactRef,
     };
 
     const ref = refs[section];
-    if (ref?.current) {
-      const targetPosition = ref.current.getBoundingClientRect().top + window.scrollY - 20;
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-    }
+    ref?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
     <main>
       <Navigation scrollToSection={scrollToSection} />
       
-      <div ref={introRef}>
+      <div ref={introRef} style={sectionWrapperStyle}>
         <Introduction data={profileData} />
       </div>
 
-      <Skills skills={profileData.skills} />
+      <div ref={skillsRef} style={sectionWrapperStyle}>
+        <Skills skills={profileData.skills} />
+      </div>
 
-      <div ref={experienceRef}>
+      <div ref={experienceRef} style={sectionWrapperStyle}>
         <WorkExperience experiences={profileData.workExperience} />
       </div>
 
-      <div ref={projectsRef}>
+      <div ref={projectsRef} style={sectionWrapperStyle}>
         <Projects projects={profileData.projects} />
       </div>
 
-      <div ref={contactRef}>
+      <div ref={contactRef} style={sectionWrapperStyle}>
         <Footer data={profileData} />
       </div>
     </main>

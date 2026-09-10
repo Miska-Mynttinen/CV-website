@@ -69,12 +69,14 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
 .projectCard {
+  width: calc(50% - 10px);
+  flex: 0 0 calc(50% - 10px);
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid #404040;
   overflow: hidden;
@@ -90,7 +92,8 @@
 }
 
 .projectCard.expanded {
-  grid-column: 1 / -1;
+  width: 100%;
+  flex-basis: 100%;
   border-color: #ff8000;
   background: rgba(48, 0, 72, 0.4);
 }
@@ -295,11 +298,17 @@
   }
 
   .grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .projectCard {
+    width: 100%;
+    flex-basis: 100%;
   }
 
   .projectCard.expanded {
-    grid-column: 1;
+    width: 100%;
+    flex-basis: 100%;
   }
 
   .cardPreview,

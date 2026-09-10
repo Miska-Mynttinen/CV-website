@@ -275,12 +275,6 @@
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.2s ease;
-}
-
-.tag:hover {
-  background: #202020;
-  border-color: #00ffff;
 }
 
 @media (max-width: 768px) {

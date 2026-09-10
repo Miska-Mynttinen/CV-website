@@ -33,12 +33,14 @@
 }
 
 .groups {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
 .group {
+  width: calc(50% - 10px);
+  flex: 0 0 calc(50% - 10px);
   border: 1px solid #404040;
   padding: 15px;
   background: rgba(0, 16, 0, 0.5);
@@ -76,6 +78,11 @@
   }
 
   .groups {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .group {
+    width: 100%;
+    flex-basis: 100%;
   }
 }

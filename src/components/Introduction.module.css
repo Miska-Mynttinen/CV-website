@@ -9,8 +9,8 @@
 }
 
 .container {
-  max-width: 800px;
   width: 100%;
+  max-width: 800px;
   position: relative;
   z-index: 1;
 }
@@ -131,7 +131,7 @@
 @media (max-width: 768px) {
   .headerSection {
     min-height: auto;
-    padding: 20px 10px;
+    padding: 60px 10px 20px;
   }
 
   .primaryBtn,

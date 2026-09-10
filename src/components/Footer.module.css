@@ -29,8 +29,9 @@
 }
 
 .contactInfo {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -38,6 +39,8 @@
 
 .infoItem {
   display: flex;
+  width: calc(33.333% - 14px);
+  flex: 0 0 calc(33.333% - 14px);
   flex-direction: column;
   align-items: center;
   padding: 15px;
@@ -118,11 +121,17 @@
   }
 
   .contactInfo {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .infoItem {
+    width: 100%;
+    flex-basis: 100%;
   }
 
   .bottom {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 5px;
   }
 
