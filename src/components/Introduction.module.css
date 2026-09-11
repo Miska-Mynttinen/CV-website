@@ -5,12 +5,12 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 40px 20px;
+  padding: 120px 20px 40px;
 }
 
 .container {
   width: 100%;
-  max-width: 800px;
+  max-width: 860px;
   position: relative;
   z-index: 1;
 }
@@ -18,109 +18,136 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
 }
 
 .textContent {
-  animation: fade-in 1s ease-out;
+  width: min(100%, 700px);
+  animation: fade-in 0.8s steps(2, end);
 }
 
 @keyframes fade-in {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .name {
-  font-size: 24px;
-  color: #00ff00;
+  font-size: clamp(26px, 5vw, 42px);
+  color: #f0f0f0;
   margin: 0;
   font-weight: normal;
-  line-height: 1.2;
+  line-height: 1.1;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  letter-spacing: 0.14em;
+  margin-bottom: 18px;
+  animation: name-flicker 6s steps(1, end) infinite alternate;
+}
+
+@keyframes name-flicker {
+  0%, 93%, 100% {
+    opacity: 1;
+  }
+
+  94%, 96% {
+    opacity: 0.7;
+  }
+
+  95% {
+    opacity: 0.9;
+  }
 }
 
 .title {
-  font-size: 14px;
-  color: #c0c0c0;
+  font-size: 12px;
+  color: #d0d0d0;
   margin: 0;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
+  letter-spacing: 0.18em;
+  margin-bottom: 6px;
 }
 
 .subtitle {
-  font-size: 12px;
+  font-size: 11px;
   color: #00ff80;
   margin: 0;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
+  letter-spacing: 0.16em;
+  margin-bottom: 16px;
 }
 
 .description {
-  font-size: 14px;
+  font-size: 13px;
   color: #c0c0c0;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.7;
   font-family: 'Courier New', monospace;
   margin-bottom: 20px;
 }
 
 .primaryBtn,
 .secondaryBtn {
-  padding: 8px 15px;
-  font-size: 12px;
-  border: 1px solid #404040;
+  padding: 8px 14px;
+  font-size: 11px;
+  border: 1px solid #2f2f2f;
   background: #000000;
-  color: #c0c0c0;
+  color: #d0d0d0;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.15s linear, border-color 0.15s linear, color 0.15s linear;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.14em;
 }
 
 .primaryBtn:hover,
 .secondaryBtn:hover {
-  background: #202020;
-  border-color: #606060;
+  background: #0d0d0d;
+  border-color: #6a6a6a;
   color: #ffffff;
 }
 
 .social {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .socialLink {
   display: flex;
   align-items: center;
-  color: #00ff00;
+  color: #00ff80;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 11px;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 5px 10px;
-  border: 1px solid #404040;
+  letter-spacing: 0.14em;
+  padding: 6px 10px;
+  border: 1px solid #2f2f2f;
   background: #000000;
-  transition: all 0.2s ease;
+  transition: background-color 0.15s linear, border-color 0.15s linear, color 0.15s linear;
 }
 
 .emailText {
   text-transform: none;
+  letter-spacing: 0.04em;
 }
 
 .socialLink:hover {
-  background: #202020;
-  border-color: #00ff00;
-  color: #00ff00;
+  background: #0d0d0d;
+  border-color: #00ff80;
+  color: #ffffff;
   text-decoration: underline;
 }
 
@@ -131,7 +158,7 @@
 @media (max-width: 768px) {
   .headerSection {
     min-height: auto;
-    padding: 60px 10px 20px;
+    padding: 90px 10px 20px;
   }
 
   .primaryBtn,
@@ -144,8 +171,8 @@
   }
 
   .socialLink {
-    font-size: 11px;
-    padding: 3px 5px;
+    font-size: 10px;
+    padding: 5px 7px;
   }
 }
 

@@ -1,11 +1,11 @@
 .section {
-  padding: 40px 20px;
+  padding: 80px 20px;
   background: #000000;
-  border-top: 1px solid #404040;
+  border-top: 1px solid #2f2f2f;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
 }
 
@@ -16,12 +16,12 @@
 
 .title {
   font-size: 20px;
-  color: #00ff00;
+  color: #f0f0f0;
   margin: 0 0 5px;
   font-weight: normal;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.16em;
 }
 
 .subtitle {
@@ -35,41 +35,43 @@
 .groups {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 18px;
 }
 
 .group {
-  width: calc(50% - 10px);
-  flex: 0 0 calc(50% - 10px);
-  border: 1px solid #404040;
-  padding: 15px;
-  background: rgba(0, 16, 0, 0.5);
+  width: calc(50% - 9px);
+  flex: 0 0 calc(50% - 9px);
+  border: 1px solid #2f2f2f;
+  padding: 18px;
+  background: rgba(10, 10, 10, 0.95);
 }
 
 .groupTitle {
-  color: #ff8000;
+  color: #ffb36b;
   font-size: 12px;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-weight: normal;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.12em;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 6px;
 }
 
 .tag {
   display: inline-block;
-  padding: 3px 8px;
-  border: 1px solid #404040;
-  color: #00ffff;
+  padding: 4px 7px;
+  border: 1px solid #2f2f2f;
+  color: #7fe7ff;
   background: #000000;
-  font-size: 11px;
+  font-size: 10px;
   font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 @media (max-width: 768px) {

@@ -1,13 +1,13 @@
 .footer {
   background: #000000;
   color: #c0c0c0;
-  padding: 40px 20px 20px;
+  padding: 80px 20px 20px;
   position: relative;
-  border-top: 1px solid #404040;
+  border-top: 1px solid #2f2f2f;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -22,9 +22,9 @@
   font-size: 18px;
   margin: 0 0 10px 0;
   font-weight: normal;
-  color: #00ffff;
+  color: #f0f0f0;
   font-family: 'Courier New', monospace;
-  letter-spacing: 1px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -32,41 +32,41 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
   margin-bottom: 20px;
   margin-top: 20px;
 }
 
 .infoItem {
   display: flex;
-  width: calc(33.333% - 14px);
-  flex: 0 0 calc(33.333% - 14px);
+  width: calc(33.333% - 12px);
+  flex: 0 0 calc(33.333% - 12px);
   flex-direction: column;
   align-items: center;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid #404040;
+  padding: 16px;
+  background: rgba(8, 8, 8, 0.96);
+  border: 1px solid #2f2f2f;
   position: relative;
 }
 
 .label {
-  font-size: 11px;
+  font-size: 10px;
   color: #00ff80;
   text-transform: uppercase;
-  margin-bottom: 5px;
-  letter-spacing: 1px;
+  margin-bottom: 6px;
+  letter-spacing: 0.14em;
   font-family: 'Courier New', monospace;
 }
 
 .infoItem a {
-  color: #00ffff;
+  color: #7fe7ff;
   text-decoration: none;
   font-weight: normal;
-  transition: all 0.2s ease;
-  font-size: 13px;
+  transition: color 0.15s linear, text-decoration-color 0.15s linear;
+  font-size: 12px;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
 }
 
 .infoItem a:hover {
@@ -75,12 +75,12 @@
 }
 
 .infoItem span {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: normal;
   font-family: 'Courier New', monospace;
   color: #c0c0c0;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
 }
 
 .infoItem .contactValue {
@@ -90,28 +90,28 @@
 .socialLinks {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .socialIcon {
   display: inline-block;
-  padding: 8px 15px;
+  padding: 7px 12px;
   background: #000000;
-  color: #00ffff;
+  color: #7fe7ff;
   text-decoration: none;
   font-weight: normal;
-  transition: all 0.2s ease;
-  border: 1px solid #404040;
+  transition: background-color 0.15s linear, border-color 0.15s linear, color 0.15s linear;
+  border: 1px solid #2f2f2f;
   font-family: 'Courier New', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 11px;
+  letter-spacing: 0.12em;
+  font-size: 10px;
 }
 
 .socialIcon:hover {
-  background: #202020;
-  border-color: #00ffff;
+  background: #0d0d0d;
+  border-color: #7fe7ff;
   color: #ffffff;
 }
 
