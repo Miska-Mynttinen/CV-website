@@ -15,7 +15,7 @@ export default function App() {
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  const sectionWrapperStyle = { scrollMarginTop: '44px' };
+  const sectionWrapperStyle = { scrollMarginTop: '38px' };
 
   const scrollToSection = (section: string) => {
     const refs: { [key: string]: React.RefObject<HTMLDivElement | null> } = {
