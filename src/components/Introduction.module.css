@@ -147,9 +147,12 @@
     padding: 90px 10px 20px;
   }
 
-  .primaryBtn,
-  .secondaryBtn {
+  .primaryBtn {
     width: 100%;
+  }
+
+  .secondaryBtn {
+    width: auto;
   }
 
   .social {
