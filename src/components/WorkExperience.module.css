@@ -1,15 +1,14 @@
 .section {
   padding: 80px 20px;
-  background: #000000;
+  background: var(--page-background);
   position: relative;
-  border-top: 1px solid #2f2f2f;
+  border-top: 1px solid var(--item-border);
 }
 
 .container {
   max-width: 860px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
 }
 
 .header {
@@ -19,10 +18,10 @@
 
 .title {
   font-size: 20px;
-  color: #f0f0f0;
+  color: var(--bright-text);
   margin: 0;
   font-weight: normal;
-  font-family: 'Courier New', monospace;
+  font-family: var(--title-font);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   margin-bottom: 5px;
@@ -30,9 +29,9 @@
 
 .subtitle {
   font-size: 12px;
-  color: #c0c0c0;
+  color: var(--muted-text);
   margin: 0;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
   opacity: 0.7;
 }
 
@@ -44,7 +43,7 @@
 .timelineItem {
   margin-bottom: 30px;
   position: relative;
-  border-left: 1px solid #2f2f2f;
+  border-left: 1px solid var(--item-border);
   padding-left: 20px;
 }
 
@@ -57,8 +56,8 @@
 .dot {
   width: 8px;
   height: 8px;
-  background: #00ff80;
-  border: 1px solid #000000;
+  background: var(--highlight);
+  border: 1px solid var(--page-background);
 }
 
 .line {
@@ -66,14 +65,14 @@
 }
 
 .card {
-  background: rgba(8, 8, 8, 0.96);
-  border: 1px solid #2f2f2f;
+  background: var(--container-background);
+  border: 1px solid var(--item-border);
   position: relative;
 }
 
 .card:hover {
-  border-color: #5a5a5a;
-  background: rgba(16, 16, 16, 0.96);
+  border-color: var(--box-border);
+  background: var(--container-hover-background);
 }
 
 .accordionTriggerInput {
@@ -95,17 +94,16 @@
   padding: 16px 16px 14px;
   cursor: pointer;
   transition: background-color 0.15s linear, border-color 0.15s linear;
-  z-index: 1;
-  border-bottom: 1px solid #2f2f2f;
+  border-bottom: 1px solid var(--item-border);
 }
 
 .accordionTriggerInput:focus-visible + .cardHeader {
-  outline: 2px solid #00ff80;
+  outline: 2px solid var(--highlight);
   outline-offset: -2px;
 }
 
 .accordionTriggerInput:checked + .cardHeader {
-  background: #0d0d0d;
+  background: var(--surface-strong);
 }
 
 .accordionTriggerInput:checked ~ .accordionAnimationWrapper {
@@ -136,15 +134,17 @@
 }
 
 .headerContent {
-  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
 }
 
 .position {
   font-size: 16px;
-  color: #f0f0f0;
+  color: var(--bright-text);
   margin: 0;
   font-weight: normal;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
   letter-spacing: 0.08em;
   margin-bottom: 6px;
   text-transform: uppercase;
@@ -152,9 +152,9 @@
 
 .company {
   font-size: 11px;
-  color: #ffb36b;
+  color: var(--warm-highlight);
   margin: 0;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 8px;
@@ -163,11 +163,11 @@
 .duration {
   display: inline-block;
   font-size: 10px;
-  color: #8ef0b1;
-  background: #000000;
+  color: var(--success-highlight);
+  background: var(--page-background);
   padding: 3px 7px;
-  border: 1px solid #2f2f2f;
-  font-family: 'Courier New', monospace;
+  border: 1px solid var(--item-border);
+  font-family: var(--item-font);
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
@@ -175,9 +175,9 @@
 .toggleIcon {
   width: 16px;
   height: 16px;
-  color: #d0d0d0;
+  color: var(--text);
   user-select: none;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,7 +194,7 @@
 }
 
 .card:hover .toggleIcon {
-  color: #00ff80;
+  color: var(--highlight);
 }
 
 .cardContent {
@@ -202,11 +202,11 @@
 }
 
 .description {
-  color: #c0c0c0;
+  color: var(--muted-text);
   line-height: 1.6;
   margin: 0 0 18px 0;
   font-size: 13px;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
 }
 
 .highlights {
@@ -214,13 +214,13 @@
 }
 
 .highlights h4 {
-  color: #7fe7ff;
+  color: var(--alt-highlight);
   font-size: 11px;
   margin: 0 0 10px 0;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
 }
 
 .highlights ul {
@@ -230,11 +230,11 @@
 }
 
 .highlights li {
-  color: #c0c0c0;
+  color: var(--muted-text);
   padding: 3px 0 3px 14px;
   position: relative;
   line-height: 1.4;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
   font-size: 12px;
 }
 
@@ -242,7 +242,7 @@
   content: '-';
   position: absolute;
   left: 0;
-  color: #00ff80;
+  color: var(--highlight);
 }
 
 .technologies {
@@ -250,13 +250,13 @@
 }
 
 .technologies h4 {
-  color: #ffb36b;
+  color: var(--warm-highlight);
   font-size: 11px;
   margin: 0 0 10px 0;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
 }
 
 .techTags {
@@ -267,13 +267,13 @@
 
 .tag {
   display: inline-block;
-  background: #000000;
-  color: #7fe7ff;
+  background: var(--page-background);
+  color: var(--alt-highlight);
   padding: 4px 7px;
-  border: 1px solid #2f2f2f;
+  border: 1px solid var(--item-border);
   font-size: 10px;
   font-weight: normal;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }

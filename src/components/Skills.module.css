@@ -1,7 +1,7 @@
 .section {
   padding: 80px 20px;
-  background: #000000;
-  border-top: 1px solid #2f2f2f;
+  background: var(--page-background);
+  border-top: 1px solid var(--item-border);
 }
 
 .container {
@@ -16,19 +16,19 @@
 
 .title {
   font-size: 20px;
-  color: #f0f0f0;
+  color: var(--bright-text);
   margin: 0 0 5px;
   font-weight: normal;
-  font-family: 'Courier New', monospace;
+  font-family: var(--title-font);
   text-transform: uppercase;
   letter-spacing: 0.16em;
 }
 
 .subtitle {
   font-size: 12px;
-  color: #c0c0c0;
+  color: var(--muted-text);
   margin: 0;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
   opacity: 0.7;
 }
 
@@ -40,18 +40,20 @@
 
 .group {
   width: calc(50% - 9px);
-  flex: 0 0 calc(50% - 9px);
-  border: 1px solid #2f2f2f;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(50% - 9px);
+  border: 1px solid var(--item-border);
   padding: 18px;
-  background: rgba(10, 10, 10, 0.95);
+  background: var(--container-background-soft);
 }
 
 .groupTitle {
-  color: #ffb36b;
+  color: var(--warm-highlight);
   font-size: 12px;
   margin: 0 0 12px;
   font-weight: normal;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
@@ -65,11 +67,11 @@
 .tag {
   display: inline-block;
   padding: 4px 7px;
-  border: 1px solid #2f2f2f;
-  color: #7fe7ff;
-  background: #000000;
+  border: 1px solid var(--item-border);
+  color: var(--alt-highlight);
+  background: var(--page-background);
   font-size: 10px;
-  font-family: 'Courier New', monospace;
+  font-family: var(--item-font);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }

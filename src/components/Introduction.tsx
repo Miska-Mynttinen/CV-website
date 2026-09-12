@@ -27,11 +27,6 @@ export default function Introduction({ data }: IntroductionProps) {
                   LinkedIn
                 </a>
               )}
-              {data.email && (
-                <span className={`${styles.socialLink} ${styles.emailText}`}>
-                  {data.email}
-                </span>
-              )}
               <a
                 href="/CV_Miska_Mynttinen.pdf"
                 download="CV_Miska_Mynttinen.pdf"

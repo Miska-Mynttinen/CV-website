@@ -22,7 +22,7 @@ export default function Footer({ data }: FooterProps) {
             {data.phone && (
               <div className={styles.infoItem}>
                 <span className={styles.label}>Phone:</span>
-                <a href={`tel:${data.phone}`}>{data.phone}</a>
+                <span className={styles.contactValue}>{data.phone}</span>
               </div>
             )}
             {data.location && (
@@ -30,19 +30,6 @@ export default function Footer({ data }: FooterProps) {
                 <span className={styles.label}>Location:</span>
                 <span>{data.location}</span>
               </div>
-            )}
-          </div>
-
-          <div className={styles.socialLinks}>
-            {data.github && (
-              <a href={data.github} target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                GitHub
-              </a>
-            )}
-            {data.linkedin && (
-              <a href={data.linkedin} target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-                LinkedIn
-              </a>
             )}
           </div>
         </div>
