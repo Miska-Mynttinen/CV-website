@@ -68,7 +68,7 @@ export const profileData = {
       technologies: ["MCP", "LLM integration", "TypeScript", "React", "Node.js", "Docker", "Podman", "SQL"],
       features: ["Custom MCP client and server", "Database context integration", "LLM-assisted SQL generation"],
       image: "",
-      link: "",
+      link: "https://chat.miska-mynttinen.fi/",
       github: "https://github.com/Miska-Mynttinen/mcp-llm-database-context-integration"
     },
     /* {
