@@ -113,7 +113,7 @@ export default function Projects({ projects }: ProjectsProps) {
                   <div className={styles.links}>
                     {project.link && (
                       <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.linkBtn}>
-                        View Live →
+                        Demo
                       </a>
                     )}
                     {project.github && (
