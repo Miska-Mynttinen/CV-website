@@ -39,25 +39,20 @@
   border-color: var(--card-hover-border);
 }
 
-.accordionTriggerInput {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+.cardHeading {
+  font: inherit;
 }
 
 .cardHeader {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 16px;
+  width: 100%;
   padding: 18px;
-  cursor: pointer;
+  text-align: left;
 }
 
-.accordionTriggerInput:focus-visible + .cardHeader {
+.cardHeader:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: -2px;
 }
@@ -69,7 +64,7 @@
   transition: grid-template-rows 0.25s ease;
 }
 
-.accordionTriggerInput:checked ~ .accordionAnimationWrapper {
+.card[data-open='true'] .accordionAnimationWrapper {
   grid-template-rows: 1fr;
 }
 
@@ -83,7 +78,7 @@
   transition: transform 0.25s ease, visibility 0s 0.25s linear;
 }
 
-.accordionTriggerInput:checked ~ .accordionAnimationWrapper .accordionTransformWrapper {
+.card[data-open='true'] .accordionTransformWrapper {
   transform: translateY(0);
   visibility: visible;
   transition: transform 0.25s ease, visibility 0s linear;
@@ -134,7 +129,7 @@
   content: '+';
 }
 
-.accordionTriggerInput:checked + .cardHeader .toggleIcon::before {
+.card[data-open='true'] .toggleIcon::before {
   content: '−';
 }
 

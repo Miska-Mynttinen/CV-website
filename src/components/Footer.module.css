@@ -16,11 +16,6 @@
   background: var(--card-bg);
   border: 1px solid var(--line);
   color: oklch(88% 0.015 150);
-  transition: border-color var(--fast-transition);
-}
-
-a.infoItem:hover {
-  border-color: var(--card-hover-border);
 }
 
 .label {

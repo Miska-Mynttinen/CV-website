@@ -47,6 +47,12 @@ html {
   scrollbar-width: none;
 }
 
+/* Keep anchor-link targets clear of the sticky navigation */
+section[id],
+footer[id] {
+  scroll-margin-top: var(--nav-height);
+}
+
 html::-webkit-scrollbar {
   display: none;
 }

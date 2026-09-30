@@ -26,6 +26,7 @@
 }
 
 .link {
+  display: inline-block;
   background: transparent;
   color: oklch(86% 0.02 150);
   font-family: var(--mono-font);

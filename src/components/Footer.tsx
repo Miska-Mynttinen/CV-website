@@ -13,16 +13,16 @@ export default function Footer({ data }: FooterProps) {
 
       <div className={styles.contactInfo}>
         {data.email && (
-          <a href={`mailto:${data.email}`} className={styles.infoItem}>
+          <div className={styles.infoItem}>
             <span className={styles.label}>Email</span>
             <span className={styles.value}>{data.email}</span>
-          </a>
+          </div>
         )}
         {data.phone && (
-          <a href={`tel:${data.phone}`} className={styles.infoItem}>
+          <div className={styles.infoItem}>
             <span className={styles.label}>Phone</span>
             <span className={styles.value}>{data.phone}</span>
-          </a>
+          </div>
         )}
         {data.location && (
           <div className={styles.infoItem}>

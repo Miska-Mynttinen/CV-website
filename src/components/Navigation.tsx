@@ -1,17 +1,16 @@
 import { useState } from 'react';
 import styles from './Navigation.module.css';
 
-interface NavigationProps {
-  scrollToSection: (section: string) => void;
-}
+const NAV_LINKS = [
+  { href: '#introduction', label: 'Home' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
 
-export default function Navigation({ scrollToSection }: NavigationProps) {
+export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const selectSection = (section: string) => {
-    setMenuOpen(false);
-    scrollToSection(section);
-  };
 
   return (
     <nav className={styles.nav}>
@@ -29,31 +28,13 @@ export default function Navigation({ scrollToSection }: NavigationProps) {
         </button>
 
         <ul className={`${styles.menu} ${menuOpen ? styles.menuOpen : ''}`}>
-          <li>
-            <button onClick={() => selectSection('introduction')} className={styles.link}>
-              Home
-            </button>
-          </li>
-          <li>
-            <button onClick={() => selectSection('skills')} className={styles.link}>
-              Skills
-            </button>
-          </li>
-          <li>
-            <button onClick={() => selectSection('experience')} className={styles.link}>
-              Experience
-            </button>
-          </li>
-          <li>
-            <button onClick={() => selectSection('projects')} className={styles.link}>
-              Projects
-            </button>
-          </li>
-          <li>
-            <button onClick={() => selectSection('contact')} className={styles.link}>
-              Contact
-            </button>
-          </li>
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <a href={link.href} onClick={() => setMenuOpen(false)} className={styles.link}>
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
