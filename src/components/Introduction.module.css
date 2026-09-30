@@ -1,31 +1,80 @@
 .headerSection {
-  min-height: 100vh;
-  background: var(--page-background);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 120px 20px 40px;
-}
-
-.container {
-  width: 100%;
-  max-width: 860px;
-  position: relative;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 22px;
+  min-height: 620px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
   text-align: center;
+  gap: 16px;
+  padding: 60px 0;
 }
 
-.textContent {
-  width: 100%;
-  max-width: 700px;
-  animation: fade-in 0.2s ease-out;
+.name {
+  font-family: var(--head-font);
+  font-size: 50px;
+  font-weight: var(--head-weight);
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  animation: fade-in 0.8s ease-out;
+}
+
+.title {
+  font-family: var(--head-font);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.subtitle {
+  font-family: var(--mono-font);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--aqua);
+}
+
+.description {
+  margin-top: 6px;
+  max-width: 56ch;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--body);
+}
+
+.social {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.socialLink,
+.cvLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--btn-border);
+  font-family: var(--mono-font);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  transition: background-color var(--fast-transition);
+}
+
+.cvLink {
+  border-color: var(--btn-border-neutral);
+  color: oklch(90% 0.01 150);
+}
+
+.socialLink:hover,
+.cvLink:hover {
+  background: var(--btn-hover);
 }
 
 @keyframes fade-in {
@@ -40,127 +89,13 @@
   }
 }
 
-.name {
-  font-size: clamp(26px, 5vw, 42px);
-  color: var(--bright-text);
-  margin: 0;
-  font-weight: normal;
-  line-height: 1.1;
-  font-family: var(--title-font);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  margin-bottom: 18px;
-  animation: fade-in 0.8s ease-out;
-}
-
-.title {
-  font-size: 12px;
-  color: var(--warm-highlight);
-  margin: 0;
-  font-family: var(--title-font);
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  margin-bottom: 6px;
-}
-
-.subtitle {
-  font-size: 11px;
-  color: var(--alt-highlight);
-  margin: 0;
-  font-family: var(--item-font);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  margin-bottom: 16px;
-}
-
-.description {
-  font-size: 13px;
-  color: var(--muted-text);
-  margin: 0;
-  line-height: 1.7;
-  font-family: var(--item-font);
-  margin-bottom: 20px;
-}
-
-.primaryBtn,
-.secondaryBtn {
-  padding: 8px 14px;
-  font-size: 11px;
-  border: 1px solid var(--item-border);
-  background: var(--page-background);
-  color: var(--text);
-  cursor: pointer;
-  transition: background-color 0.15s linear, border-color 0.15s linear, color 0.15s linear;
-  font-family: var(--item-font);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
-
-.primaryBtn:hover,
-.secondaryBtn:hover {
-  background: var(--surface-strong);
-  border-color: var(--surface-muted);
-  color: var(--inverse-text);
-}
-
-.social {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.socialLink {
-  display: flex;
-  align-items: center;
-  color: var(--highlight);
-  text-decoration: none;
-  font-size: 11px;
-  font-family: var(--item-font);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 6px 10px;
-  border: 1px solid var(--item-border);
-  background: var(--page-background);
-  transition: background-color 0.15s linear, border-color 0.15s linear, color 0.15s linear;
-}
-
-.emailText {
-  text-transform: none;
-  letter-spacing: 0.04em;
-}
-
-.socialLink:hover {
-  background: var(--surface-strong);
-  border-color: var(--highlight);
-  color: var(--inverse-text);
-  text-decoration: underline;
-}
-
-.decoration {
-  display: none;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .headerSection {
-    min-height: auto;
-    padding: 90px 10px 20px;
+    min-height: min(620px, calc(100svh - var(--nav-height)));
+    padding: 48px 0;
   }
 
-  .primaryBtn {
-    width: 100%;
-  }
-
-  .secondaryBtn {
-    width: auto;
-  }
-
-  .social {
-    gap: 5px;
-  }
-
-  .socialLink {
-    font-size: 10px;
-    padding: 5px 7px;
+  .name {
+    font-size: clamp(30px, 9vw, 50px);
   }
 }

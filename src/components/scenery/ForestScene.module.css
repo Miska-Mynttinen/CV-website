@@ -1,0 +1,20 @@
+.column {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.canopyLeaf,
+.bushBlob {
+  position: absolute;
+}
+
+.bushBlob {
+  border-radius: 50%;
+}
+
+@media (max-width: 900px) {
+  .column {
+    display: none;
+  }
+}

@@ -1,4 +1,6 @@
 import type { ProfileData } from '../data/profileData';
+import SectionHeading from './SectionHeading';
+import TagList from './TagList';
 import styles from './Skills.module.css';
 
 interface SkillsProps {
@@ -6,32 +8,22 @@ interface SkillsProps {
 }
 
 export default function Skills({ skills }: SkillsProps) {
+  const groups = [
+    { title: 'Languages', items: skills.languages },
+    { title: 'Technologies', items: skills.technologies },
+  ];
+
   return (
-    <section id="skills" className={styles.section}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>Skills</h2>
-        </div>
+    <section id="skills" className="contentSection">
+      <SectionHeading>Skills</SectionHeading>
 
-        <div className={styles.groups}>
-          <div className={styles.group}>
-            <h3 className={styles.groupTitle}>Languages</h3>
-            <div className={styles.tags}>
-              {skills.languages.map((skill) => (
-                <span key={skill} className={styles.tag}>{skill}</span>
-              ))}
-            </div>
+      <div className={styles.groups}>
+        {groups.map((group) => (
+          <div key={group.title} className={styles.group}>
+            <h3 className={styles.groupTitle}>{group.title}</h3>
+            <TagList items={group.items} />
           </div>
-
-          <div className={styles.group}>
-            <h3 className={styles.groupTitle}>Technologies</h3>
-            <div className={styles.tags}>
-              {skills.technologies.map((skill) => (
-                <span key={skill} className={styles.tag}>{skill}</span>
-              ))}
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

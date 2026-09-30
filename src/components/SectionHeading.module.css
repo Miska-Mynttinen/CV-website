@@ -1,0 +1,36 @@
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  font-family: var(--head-font);
+  font-size: 22px;
+  font-weight: var(--head-weight);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink);
+}
+
+.leaf {
+  flex: none;
+  width: 16px;
+  height: 9px;
+  background: var(--leaf);
+}
+
+.leafLeft {
+  border-radius: 0 100% 0 100%;
+}
+
+.leafRight {
+  border-radius: 100% 0 100% 0;
+}
+
+@media (max-width: 900px) {
+  .heading {
+    font-size: 18px;
+    gap: 10px;
+  }
+}

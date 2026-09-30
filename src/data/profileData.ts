@@ -34,7 +34,7 @@ export const profileData = {
       id: 1,
       company: "ABB via Academic Work",
       position: "Software Engineer",
-      duration: "April 2026 -> Present",
+      duration: "April 2026 to Present",
       description: "Developing web software and integrations for a Manufacturing Execution System (MES).",
       highlights: [
         "Designing, planning, and iterating modern web solutions to expand and improve the existing product family.",
@@ -47,7 +47,7 @@ export const profileData = {
       id: 2,
       company: "ABB",
       position: "Web Development Trainee / Master's Thesis Worker",
-      duration: "June 2023 -> March 2026",
+      duration: "June 2023 to March 2026",
       description: "Developed web applications, frameworks, and infrastructure for ABB's Manufacturing Execution System and did a master's thesis project.",
       highlights: [
         "Researched context-aware Large Language Model assistance in industrial systems using the Model Context Protocol (MCP).",
