@@ -12,7 +12,7 @@
   --btn-hover: oklch(24% 0.05 150 / 0.6);
   --card-hover-border: oklch(50% 0.09 150);
   --panel-bg: oklch(11% 0.018 158 / 0.95);
-  --panel-bg-mobile: oklch(11% 0.018 158 / 0.78);
+  --panel-bg-mobile: oklch(11% 0.018 158 / 0.6);
   --frame: oklch(32% 0.07 148);
   --leaf: oklch(52% 0.12 145);
   --page-gradient: linear-gradient(
@@ -124,15 +124,15 @@ button {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* MobileScene supplies the background and tint behind the panel */
   .panel {
-    background: var(--panel-bg-mobile);
+    z-index: 1;
+    background: transparent;
     border-left: none;
     border-right: none;
   }
-}
 
-@media (min-width: 901px) {
-  .mobileOnly {
+  .desktopOnly {
     display: none;
   }
 }

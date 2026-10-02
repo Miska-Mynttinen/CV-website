@@ -1,0 +1,29 @@
+/* Viewport-sized so every screen gets the full scene while scrolling.
+   lvh keeps the height stable when the mobile URL bar shows or hides. */
+.scene {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 100lvh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--page-gradient);
+}
+
+/* Push the canopy below the sticky navigation so it stays visible */
+.canopy {
+  position: absolute;
+  inset: var(--nav-height) 0 auto;
+}
+
+.tint {
+  position: absolute;
+  inset: 0;
+  background: var(--panel-bg-mobile);
+}
+
+@media (min-width: 901px) {
+  .scene {
+    display: none;
+  }
+}

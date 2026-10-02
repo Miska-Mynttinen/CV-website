@@ -87,9 +87,14 @@
   }
 }
 
-/* Without motion the moving items would pile up at the top, so hide them (as the design does). */
+/* Without motion, freeze each item where its animation would be so the scene stays spread out. */
 @media (prefers-reduced-motion: reduce) {
-  .layer {
-    display: none;
+  .track,
+  .shape {
+    animation: none;
+  }
+
+  .track {
+    top: var(--rest-top);
   }
 }

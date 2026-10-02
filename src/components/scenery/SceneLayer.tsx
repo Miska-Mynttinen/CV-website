@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import type { AmbientItem } from './sceneryItems';
 import styles from './SceneLayer.module.css';
 
@@ -23,7 +24,8 @@ export default function SceneLayer({ items, className = '' }: SceneLayerProps) {
               opacity: item.opacity,
               animationDuration: `${item.durationSeconds}s`,
               animationDelay: `${item.delaySeconds}s`,
-            }}
+              '--rest-top': `${item.restTopPercent}%`,
+            } as CSSProperties}
           >
             <span
               className={`${styles.shape} ${isLeaf ? styles.leaf : styles.bubble}`}

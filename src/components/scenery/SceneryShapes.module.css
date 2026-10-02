@@ -1,0 +1,8 @@
+.canopyLeaf,
+.bushBlob {
+  position: absolute;
+}
+
+.bushBlob {
+  border-radius: 50%;
+}

@@ -30,6 +30,8 @@ export interface AmbientItem {
   durationSeconds: number;
   delaySeconds: number;
   innerDurationSeconds: number;
+  /** Where the item rests when motion is reduced, matching its animation progress. */
+  restTopPercent: number;
   opacity: number;
   color: string;
   borderRadius: string;
@@ -65,6 +67,15 @@ const BUSH_EDGES: ReadonlyArray<readonly [number, string]> = [
 ];
 const BLOBS_PER_EDGE = 7;
 
+// Travel range of the fallTop / riseTop keyframes in SceneLayer.module.css, in % of the layer height.
+const FALL_RANGE = { from: -2, to: 101 };
+const RISE_RANGE = { from: 101, to: -3 };
+
+function restTopPercent(range: { from: number; to: number }, delaySeconds: number, durationSeconds: number) {
+  const progress = -delaySeconds / durationSeconds;
+  return range.from + (range.to - range.from) * progress;
+}
+
 export const CANOPY_LEAVES: Record<Side, CanopyLeaf[]> = {
   left: [
     { top: -20, offset: -30, width: 110, height: 60, color: 'oklch(40% 0.1 145)', rotation: 20 },
@@ -99,6 +110,7 @@ function leafItem(seed: number, index: number, count: number, options: AmbientOp
   const r = (index * 53 + seed * 17) % 97;
   const width = (12 + (r % 4) * 5) * (options.leafSize ?? 1);
   const duration = 70 + (r % 6) * 12;
+  const delay = -((index * duration) / count);
   return {
     key: `leaf-${index}`,
     kind: 'leaf',
@@ -106,8 +118,9 @@ function leafItem(seed: number, index: number, count: number, options: AmbientOp
     width,
     height: width * 0.55,
     durationSeconds: duration,
-    delaySeconds: -((index * duration) / count),
+    delaySeconds: delay,
     innerDurationSeconds: 9 + (r % 5) * 3,
+    restTopPercent: restTopPercent(FALL_RANGE, delay, duration),
     opacity: options.leafOpacity ?? 1,
     color: LEAF_COLORS[(index + seed) % LEAF_COLORS.length],
     borderRadius: index % 2 ? LEAF_RADIUS_LEFT : LEAF_RADIUS_RIGHT,
@@ -118,6 +131,7 @@ function bubbleItem(seed: number, index: number, count: number): AmbientItem {
   const r = (index * 41 + seed * 29) % 89;
   const size = 10 + (r % 5) * 7;
   const duration = 120 + (r % 4) * 25;
+  const delay = -((index * duration) / count);
   return {
     key: `bubble-${index}`,
     kind: 'bubble',
@@ -125,8 +139,9 @@ function bubbleItem(seed: number, index: number, count: number): AmbientItem {
     width: size,
     height: size,
     durationSeconds: duration,
-    delaySeconds: -((index * duration) / count),
+    delaySeconds: delay,
     innerDurationSeconds: 6 + (r % 4) * 2,
+    restTopPercent: restTopPercent(RISE_RANGE, delay, duration),
     opacity: 1,
     color: 'transparent',
     borderRadius: '50%',
@@ -146,7 +161,5 @@ export const SIDE_PRESETS: Record<Side, ScenePreset> = {
 
 export const BEHIND_PANEL_ITEMS = ambientItems(41, { leaves: 8, bubbles: 3, leafOpacity: 0.6, leafSize: 0.8 });
 
-// Extra items shown behind the panel only on narrow screens, where the side columns are hidden.
-export const MOBILE_EXTRA_ITEMS = ambientItems(45, { leaves: 6, bubbles: 4, leafOpacity: 0.7, leafSize: 0.9 }).map(
-  (item) => ({ ...item, key: `mobile-${item.key}` }),
-);
+// Items for the viewport-fixed scene on narrow screens, where the side columns are hidden.
+export const MOBILE_SCENE_ITEMS = ambientItems(45, { leaves: 6, bubbles: 2, leafOpacity: 0.8, leafSize: 0.9 });

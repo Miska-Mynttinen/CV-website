@@ -4,15 +4,7 @@
   pointer-events: none;
 }
 
-.canopyLeaf,
-.bushBlob {
-  position: absolute;
-}
-
-.bushBlob {
-  border-radius: 50%;
-}
-
+/* Narrow screens have no side columns; MobileScene draws the scenery instead. */
 @media (max-width: 900px) {
   .column {
     display: none;

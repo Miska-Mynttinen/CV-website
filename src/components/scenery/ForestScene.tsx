@@ -1,5 +1,6 @@
 import SceneLayer from './SceneLayer';
-import { CANOPY_LEAVES, SIDE_PRESETS, ambientItems, bushBlobs, canopyLeafRadius, type Side } from './sceneryItems';
+import { BushBlobs, CanopyLeaves } from './SceneryShapes';
+import { SIDE_PRESETS, ambientItems, bushBlobs, type Side } from './sceneryItems';
 import styles from './ForestScene.module.css';
 
 interface ForestSceneProps {
@@ -22,36 +23,8 @@ export default function ForestScene({ side }: ForestSceneProps) {
 
   return (
     <div className={styles.column} aria-hidden="true">
-      {CANOPY_LEAVES[side].map((leaf, index) => (
-        <span
-          key={`canopy-${index}`}
-          className={styles.canopyLeaf}
-          style={{
-            top: leaf.top,
-            [side]: leaf.offset,
-            width: leaf.width,
-            height: leaf.height,
-            background: leaf.color,
-            borderRadius: canopyLeafRadius(side),
-            transform: `rotate(${leaf.rotation}deg)`,
-          }}
-        />
-      ))}
-
-      {bushes.map((blob) => (
-        <span
-          key={blob.key}
-          className={styles.bushBlob}
-          style={{
-            top: `calc(${blob.topPercent}% - ${blob.size / 2}px)`,
-            left: `${blob.leftPercent}%`,
-            width: blob.size,
-            height: blob.size,
-            background: blob.color,
-          }}
-        />
-      ))}
-
+      <CanopyLeaves side={side} />
+      <BushBlobs blobs={bushes} />
       <SceneLayer items={ambient} />
     </div>
   );
