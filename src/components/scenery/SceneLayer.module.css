@@ -62,6 +62,36 @@
   }
 }
 
+/* The mobile layer is exactly one viewport tall, so viewport units avoid relying on
+   container units inside keyframes, which some mobile browsers resolve poorly. */
+.viewportLayer .leafTrack {
+  animation-name: fallViewport;
+}
+
+.viewportLayer .bubbleTrack {
+  animation-name: riseViewport;
+}
+
+@keyframes fallViewport {
+  from {
+    transform: translateY(-2lvh);
+  }
+
+  to {
+    transform: translateY(101lvh);
+  }
+}
+
+@keyframes riseViewport {
+  from {
+    transform: translateY(101lvh);
+  }
+
+  to {
+    transform: translateY(-3lvh);
+  }
+}
+
 @keyframes spin {
   0% {
     transform: translateX(0) rotate(0deg);
@@ -90,7 +120,8 @@
 /* Without motion, freeze each item where its animation would be so the scene stays spread out. */
 @media (prefers-reduced-motion: reduce) {
   .track,
-  .shape {
+  .shape,
+  .viewportLayer .track {
     animation: none;
   }
 

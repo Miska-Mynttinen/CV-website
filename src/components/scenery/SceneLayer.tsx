@@ -5,11 +5,15 @@ import styles from './SceneLayer.module.css';
 interface SceneLayerProps {
   items: AmbientItem[];
   className?: string;
+  /** Use viewport units for travel; for layers that are exactly one viewport tall. */
+  viewportSized?: boolean;
 }
 
-export default function SceneLayer({ items, className = '' }: SceneLayerProps) {
+export default function SceneLayer({ items, className = '', viewportSized = false }: SceneLayerProps) {
+  const layerClass = [styles.layer, viewportSized && styles.viewportLayer, className].filter(Boolean).join(' ');
+
   return (
-    <div className={`${styles.layer} ${className}`} aria-hidden="true">
+    <div className={layerClass} aria-hidden="true">
       {items.map((item) => {
         const isLeaf = item.kind === 'leaf';
 

@@ -42,6 +42,8 @@ interface AmbientOptions {
   bubbles: number;
   leafSize?: number;
   leafOpacity?: number;
+  /** Multiplies animation durations; below 1 speeds items up for shorter layers. */
+  durationScale?: number;
 }
 
 interface ScenePreset {
@@ -109,7 +111,7 @@ export function bushBlobs(seed: number): BushBlob[] {
 function leafItem(seed: number, index: number, count: number, options: AmbientOptions): AmbientItem {
   const r = (index * 53 + seed * 17) % 97;
   const width = (12 + (r % 4) * 5) * (options.leafSize ?? 1);
-  const duration = 70 + (r % 6) * 12;
+  const duration = (70 + (r % 6) * 12) * (options.durationScale ?? 1);
   const delay = -((index * duration) / count);
   return {
     key: `leaf-${index}`,
@@ -127,10 +129,10 @@ function leafItem(seed: number, index: number, count: number, options: AmbientOp
   };
 }
 
-function bubbleItem(seed: number, index: number, count: number): AmbientItem {
+function bubbleItem(seed: number, index: number, count: number, options: AmbientOptions): AmbientItem {
   const r = (index * 41 + seed * 29) % 89;
   const size = 10 + (r % 5) * 7;
-  const duration = 120 + (r % 4) * 25;
+  const duration = (120 + (r % 4) * 25) * (options.durationScale ?? 1);
   const delay = -((index * duration) / count);
   return {
     key: `bubble-${index}`,
@@ -150,7 +152,7 @@ function bubbleItem(seed: number, index: number, count: number): AmbientItem {
 
 export function ambientItems(seed: number, options: AmbientOptions): AmbientItem[] {
   const leaves = Array.from({ length: options.leaves }, (_, i) => leafItem(seed, i, options.leaves, options));
-  const bubbles = Array.from({ length: options.bubbles }, (_, i) => bubbleItem(seed, i, options.bubbles));
+  const bubbles = Array.from({ length: options.bubbles }, (_, i) => bubbleItem(seed, i, options.bubbles, options));
   return [...leaves, ...bubbles];
 }
 
@@ -161,5 +163,15 @@ export const SIDE_PRESETS: Record<Side, ScenePreset> = {
 
 export const BEHIND_PANEL_ITEMS = ambientItems(41, { leaves: 8, bubbles: 3, leafOpacity: 0.6, leafSize: 0.8 });
 
+// The mobile layer is one viewport tall instead of the full page, so items need shorter
+// durations to travel at roughly the same speed as on desktop.
+const MOBILE_DURATION_SCALE = 0.3;
+
 // Items for the viewport-fixed scene on narrow screens, where the side columns are hidden.
-export const MOBILE_SCENE_ITEMS = ambientItems(45, { leaves: 6, bubbles: 2, leafOpacity: 0.8, leafSize: 0.9 });
+export const MOBILE_SCENE_ITEMS = ambientItems(45, {
+  leaves: 3,
+  bubbles: 1,
+  leafOpacity: 0.7,
+  leafSize: 0.9,
+  durationScale: MOBILE_DURATION_SCALE,
+});

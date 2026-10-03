@@ -14,7 +14,7 @@ export default function MobileScene() {
       </div>
       <BushBlobs blobs={MOBILE_BUSHES} />
       <div className={styles.tint} />
-      <SceneLayer items={MOBILE_SCENE_ITEMS} />
+      <SceneLayer items={MOBILE_SCENE_ITEMS} viewportSized />
     </div>
   );
 }
