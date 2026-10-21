@@ -122,7 +122,7 @@ export const profileData = {
 
   skills: {
     languages: ["TypeScript/JavaScript", "Python", "HTML", "CSS", "SQL"],
-    technologies: ["Node.js", "Docker", "React", "REST APIs", "AI/LLM integration", "Model Context Protocol (MCP)", "WebSockets", "Oracle database", "Podman", "Linux command line", "LIT library"]
+    technologies: ["Node.js", "Docker", "React", "REST APIs", "AI/LLM integration", "Model Context Protocol (MCP)", "WebSockets", "Oracle database", "PostgreSQL", "Podman", "Linux command line", "LIT library"]
   }
 };
 
